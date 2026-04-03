@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import Architecture from '../components/Architecture.astro';
+import Scenarios from '../components/Scenarios.astro';
+import Performance from '../components/Performance.astro';
+import Contact from '../components/Contact.astro';
+---
+
+<Layout title="YOLO26 Vision - AI 视觉智能分析系统">
+  <Navbar />
+  <main>
+    <Hero />
+    <Features />
+    <Architecture />
+    <Scenarios />
+    <Performance />
+    <Contact />
+  </main>
+  <footer class="bg-gray-900 text-gray-400 py-8 text-center text-sm border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-6">
+      <p>&copy; 2026 YOLO26 Vision. 基于 YOLO26 + SAM 2 + Supervision 构建。</p>
+      <p class="mt-2">
+        <a href="https://github.com/zryxrj/yolo26-detection-segmentation" class="text-blue-400 hover:text-blue-300 transition-colors">GitHub 源码</a>
+      </p>
+    </div>
+  </footer>
+</Layout>

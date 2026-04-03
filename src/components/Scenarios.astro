@@ -1,0 +1,43 @@
+---
+import ScenarioCard from '../components/ScenarioCard.astro';
+
+const scenarios = [
+  {
+    title: '工业质检',
+    description: '缺陷检测 + 面积计算 + 合格判定。SAM 2 自动标注生成高质量训练数据，漏检率 < 3%。',
+    metric: 'mAP50 ≥ 0.70',
+  },
+  {
+    title: '安防监控',
+    description: '人员跟踪 + 区域入侵 + 越线检测。多路并发处理，支持 6 路视频流同时分析。',
+    metric: '6 路并发',
+  },
+  {
+    title: '农业巡检',
+    description: '作物识别 + 成熟度分析 + 病虫害分割。YOLOE-26 零样本能力，无需训练新类别。',
+    metric: '零样本识别',
+  },
+  {
+    title: '零售分析',
+    description: '客流统计 + 热力图生成 + 行为分析。ByteTrack 精准跟踪，统计结果与人工核对一致。',
+    metric: 'P95 < 80ms',
+  },
+];
+---
+
+<section id="scenarios" class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-extrabold text-gray-900 mb-4">应用场景</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        一套系统，覆盖工业、安防、农业、零售多领域
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      {scenarios.map((scenario) => (
+        <ScenarioCard title={scenario.title} description={scenario.description} metric={scenario.metric} />
+      ))}
+    </div>
+  </div>
+</section>

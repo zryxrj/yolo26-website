@@ -1,0 +1,13 @@
+---
+interface Props {
+  label: string;
+  gpu: string;
+  cpu: string;
+}
+---
+
+<tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
+  <td class="py-4 px-6 font-semibold text-gray-900">{Astro.props.label}</td>
+  <td class="py-4 px-6 text-green-700 font-medium">{Astro.props.gpu}</td>
+  <td class="py-4 px-6 text-blue-700 font-medium">{Astro.props.cpu}</td>
+</tr>

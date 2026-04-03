@@ -1,0 +1,47 @@
+---
+import FeatureCard from '../components/FeatureCard.astro';
+
+const features = [
+  {
+    title: '实时检测分割',
+    description: 'YOLO26 端到端推理，无需 NMS 后处理。GPU 25+ FPS，CPU 10+ FPS，满足工业级实时分析需求。',
+  },
+  {
+    title: '智能路由仲裁',
+    description: '三路径自适应架构：路径 A（YOLO26-seg 默认生产）/ 路径 B（SAM 2 精细分割）/ 路径 C（YOLOE-26 零样本）。质量下降自动切换，确保稳定性。',
+  },
+  {
+    title: '零样本识别',
+    description: 'YOLOE-26 开放词汇分割，无需训练新类别即可识别未知目标。支持文本提示和视觉提示两种模式。',
+  },
+  {
+    title: '多路并发处理',
+    description: '全局单推理 Worker 架构，支持最多 6 路视频流并发。独立队列管理 + 背压控制 + 自动降级策略。',
+  },
+  {
+    title: '生产级可靠性',
+    description: '4 级固定降级策略（降分辨率 → 关闭精修 → 仅检测），确保任何情况下系统持续运行不崩溃。',
+  },
+  {
+    title: '数据闭环',
+    description: 'SAM2 自动标注 → 人工复核 → 主动学习 → 误检回流，形成持续优化的数据飞轮。',
+  },
+];
+---
+
+<section id="features" class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-extrabold text-gray-900 mb-4">核心能力</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        从检测到分割，从已知到未知，一套系统覆盖全场景
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {features.map((feature) => (
+        <FeatureCard title={feature.title} description={feature.description} />
+      ))}
+    </div>
+  </div>
+</section>

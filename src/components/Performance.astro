@@ -1,0 +1,53 @@
+---
+import MetricRow from '../components/MetricRow.astro';
+
+const metrics = [
+  { label: 'P95 延迟', gpu: '< 80ms', cpu: '< 200ms' },
+  { label: 'FPS', gpu: '≥ 25', cpu: '≥ 10' },
+  { label: 'mAP50 / mIoU', gpu: '≥ 0.70 / ≥ 0.60', cpu: '同左' },
+  { label: '最大路数', gpu: '6 路 (RTX 4060)', cpu: '2 路 (i7)' },
+  { label: '误报率', gpu: '< 5%', cpu: '< 5%' },
+  { label: '漏报率', gpu: '< 3%', cpu: '< 3%' },
+];
+---
+
+<section id="performance" class="py-24 bg-white">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-extrabold text-gray-900 mb-4">性能指标</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+        所有指标以本项目基准测试为准，附原始日志与脚本复现实验
+      </p>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+      <table class="w-full">
+        <thead>
+          <tr class="bg-gray-900 text-white">
+            <th class="py-4 px-6 text-left font-semibold">指标</th>
+            <th class="py-4 px-6 text-left font-semibold">GPU (RTX 4060)</th>
+            <th class="py-4 px-6 text-left font-semibold">CPU (i7)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {metrics.map((m) => (
+            <MetricRow label={m.label} gpu={m.gpu} cpu={m.cpu} />
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Tech Stack -->
+    <div class="mt-16 text-center">
+      <h3 class="text-2xl font-bold text-gray-900 mb-8">技术栈</h3>
+      <div class="flex flex-wrap justify-center gap-4">
+        <span class="bg-red-50 text-red-700 px-5 py-2.5 rounded-full font-medium border border-red-200">YOLO26</span>
+        <span class="bg-blue-50 text-blue-700 px-5 py-2.5 rounded-full font-medium border border-blue-200">SAM 2</span>
+        <span class="bg-purple-50 text-purple-700 px-5 py-2.5 rounded-full font-medium border border-purple-200">YOLOE-26</span>
+        <span class="bg-green-50 text-green-700 px-5 py-2.5 rounded-full font-medium border border-green-200">Supervision</span>
+        <span class="bg-orange-50 text-orange-700 px-5 py-2.5 rounded-full font-medium border border-orange-200">Python 3.10+</span>
+        <span class="bg-yellow-50 text-yellow-700 px-5 py-2.5 rounded-full font-medium border border-yellow-200">PyTorch</span>
+      </div>
+    </div>
+  </div>
+</section>

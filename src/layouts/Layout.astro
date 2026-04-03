@@ -1,0 +1,20 @@
+---
+interface Props {
+  title: string;
+}
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{Astro.props.title}</title>
+    <meta name="description" content="基于 YOLO26 端到端检测 + SAM 2 精细分割的多场景视觉智能分析系统。支持多路并发、自适应降级、零样本识别。" />
+  </head>
+  <body class="antialiased">
+    <slot />
+  </body>
+</html>
